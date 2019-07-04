@@ -19,8 +19,19 @@ public class SignInTest {
 
         driver.findElement(By.linkText("Your trips")).click();
         driver.findElement(By.id("SignIn")).click();
+//clear username textfield
+        driver.findElement(By.id("email").clear();
+
+//clear password textfield
+        driver.findElement(By.id("password").clear();
+
+
+
+
 
         driver.findElement(By.id("signInButton")).click();
+
+
 
         String errors1 = driver.findElement(By.id("errors1")).getText();
         Assert.assertTrue(errors1.contains("There were errors in your submission"));

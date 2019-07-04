@@ -44,6 +44,44 @@ public class FlightBookingTest {
 
         driver.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")).click();
 
+
+
+ //Find the date  picker(depart on) control
+driver.findElement(By.xpath("//div[@id='ORtrip']/div[4]/dl/dt/label/strong")).click();
+
+//Wait until departure table visible
+    wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.className("calendar")).get(0)));
+
+
+ //Click departure day
+    driver.findElements(By.xpath
+            ("//div[@id='ui-datepicker-div']/div[2]/table/tbody/tr[3]/td[3]/a")).click();
+    //Departure day selection finished//
+
+
+//select value for adult//
+
+Select adult = new Select(driver.findElement(By.id("Adults")))
+adult.SelectByIndex(1);
+
+//select value for children//
+
+Select children = new Select(driver.findElement(By.id("Adults")))
+children.SelectByIndex(1);
+
+
+//select value for children//
+
+Select infants = new Select(driver.findElement(By.id("infants")))
+infants.SelectByIndex(1);
+
+
+
+
+
+
+
+
         //all fields filled in. Now click on search
         driver.findElement(By.id("SearchBtn")).click();
 
@@ -61,6 +99,7 @@ public class FlightBookingTest {
         try {
             Thread.sleep(durationInMilliSeconds);
         } catch (InterruptedException e) {
+
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }

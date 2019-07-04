@@ -31,8 +31,37 @@ public class HotelBookingTest {
 
         localityTextBox.sendKeys("Indiranagar, Bangalore");
 
-        new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
-        searchButton.click();
+
+//Find the checkin control
+driver.findElement(By.xpath("//form[@id='SearchForm']/section[2]/div[1]/dl/dt/label")).click();
+
+//Wait until calendar visible
+    wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.className("calendar")).get(0)));
+
+
+ //Click check-in(5th july) date
+    driver.findElements(By.xpath
+            ("//div[@id='ui-datepicker-div']/div[1]/table/tbody/tr[1]/td[5]/a")).click();
+    //Check-in selection finished//
+
+
+//Find the check-out control
+driver.findElement(By.xpath("//form[@id='SearchForm']/section[2]/div[2]/dl/dt/label")).click();
+
+//Wait until calendar visible
+    wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.className("calendar")).get(0)));
+
+
+ //Click check-out(8th july) date
+    driver.findElements(By.xpath
+            ("//div[@id='ui-datepicker-div']/div[1]/table/tbody/tr[2]/td[1]/a")).click();
+    //Check-out selection finished//
+
+
+
+ new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
+        driver.findElements(By.id
+            ("SearchHotelsButton")).click();
 
         driver.quit();
 
